@@ -22,6 +22,30 @@ flowchart TD
     Overlayer -->|Fetch Large Layers <br/>Cached, reduces CDN traffic | Blobs
 ```
 
+## Usage
+
+```sh
+git clone https://github.com/STARRY-S/overlayer.git && cd overlayer
+cp config.example.yaml config.yaml
+# Edit configuration
+vim config.yaml
+
+# Optional: create CDN Auth Secret
+echo "TokenValueFooBar" > token
+podman secret create CDN_AUTH_TOKEN token
+
+# Run in container
+VERSION="latest"
+podman run -dit \
+    -v $(pwd)/config.yaml:/config.yaml \
+    -v $(pwd)/certs:/certs \
+    --name overlayer \
+    --network host \
+    --restart=always \
+    --secret CDN_AUTH_TOKEN,type=env,target=BLOBS_CDN_AUTH_TOKEN \
+    ghcr.io/starry-s/overlayer:${VERSION} run -c=/config.yaml
+```
+
 ## License
 
 Copyright 2026 STARRY-S
