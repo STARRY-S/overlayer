@@ -91,6 +91,11 @@ linters:
           - revive
         path: pkg/*
         text: "parameter 'ctx' seems to be unused"
+      # Permit ctx param unused
+      - linters:
+          - revive
+        path: pkg/*
+        text: "avoid meaningless package names"
     paths:
       - zz_generated_*
       - third_party$
