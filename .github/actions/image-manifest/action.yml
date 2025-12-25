@@ -16,8 +16,6 @@ runs:
         password: ${{ env.GH_TOKEN }}
     - name: Install Hangar
       uses: cnrancher/hangar/.github/actions/install-hangar@main
-      with:
-        version: ${{ env.HANGAR_VERSION }}
     - name: Create manifest list and push
       shell: bash
       run: |

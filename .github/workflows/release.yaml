@@ -10,7 +10,6 @@ permissions:
 
 env:
   REGISTRY: "ghcr.io"
-  HANGAR_VERSION: "v1.9.2"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
@@ -22,7 +21,7 @@ jobs:
       - name: GitHub Release
         uses: ./.github/actions/github-release
   image-build-amd64:
-    runs-on: 'ubuntu-24.04'
+    runs-on: 'ubuntu-latest'
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
