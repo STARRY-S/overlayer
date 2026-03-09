@@ -47,7 +47,7 @@ jobs:
           driver-opts: |
             network=host
       - name: Image Build
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           push: true
           build-args: |
