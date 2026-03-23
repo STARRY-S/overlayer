@@ -1,6 +1,6 @@
 version: "2"
 run:
-  go: "1.24"
+  go: "1.25"
   tests: false
   allow-parallel-runners: true
 linters:
@@ -21,6 +21,7 @@ linters:
     gosec:
       excludes:
         - G115 # https://github.com/moby/moby/issues/48358#issuecomment-2323339603
+        - G704
     importas:
       alias:
         # Kubernetes

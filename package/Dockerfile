@@ -1,5 +1,5 @@
 
-FROM registry.suse.com/bci/golang:1.24 AS build
+FROM registry.suse.com/bci/golang:1.25 AS build
 
 WORKDIR /app
 
